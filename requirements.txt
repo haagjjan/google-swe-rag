@@ -1,0 +1,7 @@
+# Convenience dependency list. pyproject.toml is the authoritative package
+# definition; this file also includes the offline test dependency.
+google-genai>=1.0,<2.0
+numpy>=2.0,<3.0
+pypdf>=5.0,<7.0
+python-dotenv>=1.0,<2.0
+pytest>=8.0,<10.0
