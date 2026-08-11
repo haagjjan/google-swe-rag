@@ -1,1 +1,28 @@
+# Secrets and local configuration
+.env
+.env.*
 *.env
+!.env.example
+
+# Python environments and generated files
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Editors and operating systems
+.DS_Store
+.idea/
+.vscode/
+
+# User-provided documents and generated vector data
+data/pdfs/*
+!data/pdfs/.gitkeep
+data/vector_store/*
+!data/vector_store/.gitkeep
