@@ -3,6 +3,10 @@
 .env.*
 *.env
 !.env.example
+.claude
+.claude.*
+*.claude
+*.settings.local.json
 
 # Python environments and generated files
 .venv/
