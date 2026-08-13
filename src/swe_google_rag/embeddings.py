@@ -1,5 +1,6 @@
 """Create document and query embeddings with the Google Gen AI SDK."""
 
+import math
 from collections.abc import Sequence
 
 from google import genai
@@ -9,6 +10,13 @@ from .config import Settings
 from .schemas import DocumentChunk
 
 _EMBEDDING_BATCH_SIZE = 100
+
+
+def embedding_request_count(item_count: int) -> int:
+    """Return the provider call count implied by the configured batch size."""
+    if item_count < 0:
+        raise ValueError("item_count must not be negative.")
+    return math.ceil(item_count / _EMBEDDING_BATCH_SIZE) if item_count else 0
 
 
 def embed_document_chunks(
@@ -70,9 +78,10 @@ def _embed_texts(
     client = genai.Client(api_key=settings.google_api_key)
 
     vectors: list[list[float]] = []
-    config_kwargs: dict[str, str | int] = {"task_type": task_type}
-    if settings.embedding_dimension is not None:
-        config_kwargs["output_dimensionality"] = settings.embedding_dimension
+    config = types.EmbedContentConfig(
+        task_type=task_type,
+        output_dimensionality=settings.embedding_dimension,
+    )
 
     for start in range(0, len(normalized_texts), _EMBEDDING_BATCH_SIZE):
         batch = normalized_texts[start : start + _EMBEDDING_BATCH_SIZE]
@@ -81,7 +90,7 @@ def _embed_texts(
             response = client.models.embed_content(
                 model=settings.embedding_model,
                 contents=batch,
-                config=types.EmbedContentConfig(**config_kwargs),
+                config=config,
             )
         except Exception as exc:
             raise RuntimeError(
