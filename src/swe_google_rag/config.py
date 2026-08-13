@@ -20,6 +20,7 @@ class Settings:
     chunk_size_tokens: int
     chunk_overlap_tokens: int
     top_k: int
+    max_question_chars: int = 2_000
 
 
 def load_settings(env_file: Path | None = None) -> Settings:
@@ -51,6 +52,7 @@ def load_settings(env_file: Path | None = None) -> Settings:
     chunk_size_tokens = _positive_int("CHUNK_SIZE_TOKENS")
     chunk_overlap_tokens = _non_negative_int("CHUNK_OVERLAP_TOKENS")
     top_k = _positive_int("TOP_K")
+    max_question_chars = _positive_int_with_default("MAX_QUESTION_CHARS", 2_000)
 
     if chunk_overlap_tokens >= chunk_size_tokens:
         raise ValueError("CHUNK_OVERLAP_TOKENS must be smaller than CHUNK_SIZE_TOKENS.")
@@ -65,6 +67,7 @@ def load_settings(env_file: Path | None = None) -> Settings:
         chunk_size_tokens=chunk_size_tokens,
         chunk_overlap_tokens=chunk_overlap_tokens,
         top_k=top_k,
+        max_question_chars=max_question_chars,
     )
 
 
@@ -121,6 +124,18 @@ def _optional_positive_int(name: str) -> int | None:
     if value <= 0:
         raise ValueError(f"{name} must be greater than zero.")
 
+    return value
+
+
+def _positive_int_with_default(name: str, default: int) -> int:
+    """Read an optional positive integer or return a documented default."""
+    raw_value = os.getenv(name)
+    if raw_value is None or not raw_value.strip():
+        return default
+
+    value = _parse_int(name)
+    if value <= 0:
+        raise ValueError(f"{name} must be greater than zero.")
     return value
 
 
