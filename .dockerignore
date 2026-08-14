@@ -1,0 +1,14 @@
+.git
+.github
+.env
+.venv
+build
+data/pdfs
+data/vector_store
+data/demo_vector_store
+eval/datasets
+eval/configs
+eval/results/*
+!eval/results/latest
+!eval/results/latest/**
+tests

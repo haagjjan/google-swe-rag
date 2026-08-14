@@ -1,0 +1,16 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      PDF_STORAGE_PATH: data/demo_pdfs
+      VECTOR_STORE_PATH: data/demo_vector_store
+    volumes:
+      - rag-vector-store:/app/data/demo_vector_store
+
+volumes:
+  rag-vector-store:
