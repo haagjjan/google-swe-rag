@@ -4,6 +4,7 @@ import json
 import os
 from collections.abc import Sequence
 from pathlib import Path
+from typing import Any
 from uuid import uuid4
 
 import numpy as np
@@ -196,7 +197,7 @@ def search_index(
             "The number of chunks does not match the number of embeddings."
         )
 
-    query = np.asarray(query_vector, dtype=np.float32)
+    query: Any = np.asarray(query_vector, dtype=np.float32)
 
     if query.ndim != 1:
         raise ValueError("query_vector must be one-dimensional.")
@@ -232,8 +233,10 @@ def search_index(
         RetrievedChunk(
             chunk=chunks[index],
             similarity_score=float(similarity_scores[index]),
+            retrieval_method="dense",
+            rank=rank,
         )
-        for index in selected_indices
+        for rank, index in enumerate(selected_indices, start=1)
     ]
 
 
@@ -283,7 +286,7 @@ def _create_embedding_matrix(
         raise ValueError("At least one embedding is required.")
 
     try:
-        matrix = np.asarray(embeddings, dtype=np.float32)
+        matrix: Any = np.asarray(embeddings, dtype=np.float32)
     except ValueError as exc:
         raise ValueError("Embeddings must all have the same dimension.") from exc
 
