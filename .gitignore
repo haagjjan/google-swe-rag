@@ -19,6 +19,7 @@ __pycache__/
 .ruff_cache/
 .coverage
 htmlcov/
+build/
 
 # Editors and operating systems
 .DS_Store
@@ -30,3 +31,10 @@ data/pdfs/*
 !data/pdfs/.gitkeep
 data/vector_store/*
 !data/vector_store/.gitkeep
+data/demo_vector_store/
+
+# Generated evaluation runs; retain the curated latest handoff only.
+eval/results/*/
+!eval/results/latest/
+!eval/results/latest/summary.json
+!eval/results/latest/REPORT.md
