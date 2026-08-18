@@ -1,0 +1,133 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Count 3 /Kids [4 0 R 6 0 R 8 0 R] >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 5 0 R >>
+endobj
+5 0 obj
+<< /Length 655 >>
+stream
+BT
+/F1 10 Tf
+72 748 Td
+14 TL
+(Northstar AI Delivery Guide) Tj
+T*
+() Tj
+T*
+(Document owner: AI Enablement. Version: 1.0.) Tj
+T*
+() Tj
+T*
+(The team ships on a two-week release cadence. A release candidate needs passing) Tj
+T*
+(unit and integration tests, at least 85 percent line coverage, a dependency) Tj
+T*
+(scan with no unresolved critical findings, and approval from one engineer who) Tj
+T*
+(did not author the change. The release manager owns the go or no-go decision.) Tj
+T*
+() Tj
+T*
+(Routine releases are frozen at 16:00 UTC on the Wednesday before deployment.) Tj
+T*
+(A failed quality gate blocks release; a deadline is not an exception.) Tj
+T*
+ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 7 0 R >>
+endobj
+7 0 obj
+<< /Length 707 >>
+stream
+BT
+/F1 10 Tf
+72 748 Td
+14 TL
+(Product experiments) Tj
+T*
+() Tj
+T*
+(New AI assistance features begin with 10 percent of eligible users for 24) Tj
+T*
+(hours. The primary success metric is task completion rate, with a target lift) Tj
+T*
+(of at least 5 percent relative to the control. Each arm needs at least 1,000) Tj
+T*
+(eligible tasks before a ship decision.) Tj
+T*
+() Tj
+T*
+(The error-rate guardrail allows no more than a 0.5 percentage-point increase.) Tj
+T*
+(The latency guardrail allows no more than a 10 percent increase in p95 latency.) Tj
+T*
+(If either guardrail fails, exposure returns to zero while the team investigates.) Tj
+T*
+(Segment results are reported for new and returning users.) Tj
+T*
+ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R >> >> /Contents 9 0 R >>
+endobj
+9 0 obj
+<< /Length 733 >>
+stream
+BT
+/F1 10 Tf
+72 748 Td
+14 TL
+(Cost and operations) Tj
+T*
+() Tj
+T*
+(The monthly hosted-model budget is 1,200 US dollars. The finance alert fires at) Tj
+T*
+(70 percent of the budget and the engineering escalation fires at 90 percent.) Tj
+T*
+(Cost reports separate embedding input, generation input, and generation output.) Tj
+T*
+() Tj
+T*
+(Repeated, identical document chunks may reuse cached embeddings when the model,) Tj
+T*
+(dimension, and normalized text hash all match. Generated answers are not cached) Tj
+T*
+(because freshness and experiment attribution are more important than the small) Tj
+T*
+(latency saving. Usage dashboards retain aggregate metrics for 90 days and raw) Tj
+T*
+(sanitized trial records for 30 days.) Tj
+T*
+ET
+endstream
+endobj
+xref
+0 10
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000133 00000 n 
+0000000203 00000 n 
+0000000329 00000 n 
+0000001034 00000 n 
+0000001160 00000 n 
+0000001917 00000 n 
+0000002043 00000 n 
+trailer
+<< /Size 10 /Root 1 0 R >>
+startxref
+2826
+%%EOF
